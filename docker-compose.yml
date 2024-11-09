@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7.4
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: app-dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+    networks:
+      - app-network
+  app-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    container_name: app-prod
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
