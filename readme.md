@@ -121,6 +121,7 @@ Nos dois casos, as próximas requisições poderão ser realizadas somente quand
     ab -n 1001 -c 1 -k -H "API_KEY: token_rate_1000_blockduration_1"  http://localhost:8080/
     ```
      - obs: no token é específicado o rate e o tempo de bloqueio
+     - obs2: se for utilizar a ferramenta, se atentar aos campos "Complete requests" (sucesso) e "Non-2xx responses" (erro) gerados nos logs para apuração dos resultados
 
    #### Testar via testes unitários
     - será necessário entrar do docker
