@@ -109,18 +109,20 @@ Nos dois casos, as próximas requisições poderão ser realizadas somente quand
 
    Para realizar testes de carga e verificar o comportamento do rate limiter, você pode utilizar o ApacheBench. Abaixo estão alguns exemplos:
 
-   - **teste com 10 requisições, utilizando apenas 1 conexão por IP:**
+   - **teste com 10 requisições, com 1 conexão por IP:**
 
     ```bash
     ab -n 10 -c 1 -k http://localhost:8080/
     ```
+   
+   - obs: caso realizado o teste via navegador, aguardar 1 minuto para executar o teste via ApacheBench (block_duration por padrão está configurado 1 minuto)
 
-   - **teste com 10 requisições, com apenas 1 conexão via TOKEN**
+   - **teste com 1001 requisições, com 1 conexão via TOKEN**
     
     ```bash
     ab -n 1001 -c 1 -k -H "API_KEY: token_rate_1000_blockduration_1"  http://localhost:8080/
     ```
-     - obs: no token é específicado o rate e o tempo de bloqueio
+     - obs: no token é específicado o rate limit e o tempo de bloqueio
      - obs2: se for utilizar a ferramenta, se atentar aos campos "Complete requests" (sucesso) e "Non-2xx responses" (erro) gerados nos logs para apuração dos resultados
 
    #### Testar via testes unitários
