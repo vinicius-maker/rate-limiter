@@ -18,7 +18,7 @@ func NewExpiredLimiterError() *LimiterError {
 
 func NewIncrementBlockedError() *LimiterError {
 	return &LimiterError{
-		Message: "You have exceeded the allowed number of requests within the specified time window and have been temporarily blocked.",
+		Message: "you have reached the maximum number of requests or actions allowed within a certain time frame.",
 		Err:     "is_blocked",
 	}
 }
