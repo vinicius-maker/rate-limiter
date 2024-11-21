@@ -94,7 +94,7 @@ Nos dois casos, as próximas requisições poderão ser realizadas somente quand
 
     ```bash
         docker-compose build
-        docker-compose up -d app-prod
+        docker-compose up
 
 4. **Acessar o localhost:**
     - Após a execução do Docker, o servidor estará disponível em http://localhost:8080/. Acesse essa URL no seu navegador para interagir com a aplicação.
@@ -132,3 +132,6 @@ Nos dois casos, as próximas requisições poderão ser realizadas somente quand
     go test ./...
     ```
     - obs: se alterar os valores padrões do arquivo .env, os testes apresentarão um comportamento diferente, devido às configurações dos valores padrões
+
+## Observação para correção
+   - Foi alterada apenas as configurações do docker para conter apenas um container da aplicação, assim facilitando a correção do exercício. 

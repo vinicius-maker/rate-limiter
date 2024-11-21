@@ -9,24 +9,11 @@ services:
     networks:
       - app-network
 
-  app-dev:
+  app:
     build:
       context: .
-      dockerfile: Dockerfile.dev
-    container_name: app-dev
-    ports:
-      - "8080:8080"
-    volumes:
-      - .:/app
-    depends_on:
-      - redis
-    networks:
-      - app-network
-  app-prod:
-    build:
-      context: .
-      dockerfile: Dockerfile.prod
-    container_name: app-prod
+      dockerfile: Dockerfile
+    container_name: app
     ports:
       - "8080:8080"
     depends_on:
